@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog List</title>
+</head>
+<body>
+    <h1>Blog List</h1>
+    <ul>
+        {% for blog in blogs %}
+            <li><a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a> - {{ blog.pub_date }} by {{ blog.author.name }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Author List</h2>
+    <ul>
+        {% for author in authors %}
+            <li><a href="{% url 'author_detail' author.id %}">{{ author.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'blog_create' %}">Create New Blog</a>
+</body>
+</html>

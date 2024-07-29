@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ author.name }}</title>
+</head>
+<body>
+    <h1>{{ author.name }}</h1>
+    <p>{{ author.bio }}</p>
+    <h2>Blogs by {{ author.name }}</h2>
+    <ul>
+        {% for blog in blogs %}
+            <li><a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'blog_list' %}">Back to Blog List</a>
+</body>
+</html>
